@@ -8,12 +8,27 @@ import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 
+import java.lang.reflect.Array;
+
 public class MainActivity extends AppCompatActivity implements GestureDetector.OnGestureListener {
+
+    private Array preOrder;
+    private Array inOrder;
+    private Array postOrder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        preOrder = ["start" "T", "M", "O", "-", "0", "9", "*", "8", "G", "Q", "Z", "7", "N", "K",
+                    "Y", "C", "D", "X", "B", "6", "E", "A", "W", "J", "1", "P", "R", "L", "I",
+                    "U", "-", "2", "F", "S", "V", "3", "H", "4", "5"];
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
     }
 
     public boolean onTouchEvent(MotionEvent event){
