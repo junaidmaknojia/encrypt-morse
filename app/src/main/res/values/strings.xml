@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">EncryptMorse</string>
+    <string name="screenText" />
 </resources>
