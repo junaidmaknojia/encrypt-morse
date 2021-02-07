@@ -1,6 +1,7 @@
 package com.example.encryptmorse;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GestureDetectorCompat;
 import androidx.core.view.MotionEventCompat;
 
 import android.os.Bundle;
@@ -16,6 +17,7 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
     private ArrayList<String> preOrder;
     private Array inOrder;
     private Array postOrder;
+    private GestureDetectorCompat mDetector;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +34,25 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
                     "B", "D", "N", "T", "1", "J", "P", "W", "L", "R", "A", "2", "-", "F", "U", "3",
                     "V", "4", "5", "H", "S", "I", "E", "start"];
          */
+        mDetector = new GestureDetectorCompat(this,this);
+        // Set the gesture detector as the double tap
+        // listener.
+        mDetector.setOnDoubleTapListener(new GestureDetector.OnDoubleTapListener() {
+            @Override
+            public boolean onSingleTapConfirmed(MotionEvent motionEvent) {
+                return false;
+            }
 
+            @Override
+            public boolean onDoubleTap(MotionEvent motionEvent) {
+                return false;
+            }
+
+            @Override
+            public boolean onDoubleTapEvent(MotionEvent motionEvent) {
+                return false;
+            }
+        });
     }
 
     @Override
@@ -67,39 +87,39 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
     }
 
     @Override
-    public boolean onDown(MotionEvent motionEvent) {
-        Log.d("DEBUG_TAG","onDown");
-        return false;
+    public boolean onDown(MotionEvent event) {
+        Log.d("DEBUG_TAG","onDown: " + event.toString());
+        return true;
     }
 
     @Override
-    public void onShowPress(MotionEvent motionEvent) {
-        Log.d("DEBUG_TAG","onShowPress");
+    public boolean onFling(MotionEvent event1, MotionEvent event2,
+                           float velocityX, float velocityY) {
+        Log.d("DEBUG_TAG", "onFling: " + event1.toString() + event2.toString());
+        return true;
     }
 
     @Override
-    public boolean onSingleTapUp(MotionEvent motionEvent) {
-        Log.d("DEBUG_TAG","onSingleTapUp");
-        //motionEvent.
-        return false;
+    public void onLongPress(MotionEvent event) {
+        Log.d("DEBUG_TAG", "onLongPress: " + event.toString());
     }
 
     @Override
-    public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent1, float v, float v1) {
-        //save
-        Log.d("DEBUG_TAG","onScroll");
-        return false;
+    public boolean onScroll(MotionEvent event1, MotionEvent event2, float distanceX,
+                            float distanceY) {
+        Log.d("DEBUG_TAG", "onScroll: " + event1.toString() + event2.toString());
+        return true;
     }
 
     @Override
-    public void onLongPress(MotionEvent motionEvent) {
-        //dash
-        Log.d("DEBUG_TAG","Dash / onLongPress");
+    public void onShowPress(MotionEvent event) {
+        Log.d("DEBUG_TAG", "onShowPress: " + event.toString());
     }
 
     @Override
-    public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent1, float v, float v1) {
-        Log.d("DEBUG_TAG","onFling");
-        return false;
+    public boolean onSingleTapUp(MotionEvent event) {
+        Log.d("DEBUG_TAG", "onSingleTapUp: " + event.toString());
+        return true;
     }
+
 }
