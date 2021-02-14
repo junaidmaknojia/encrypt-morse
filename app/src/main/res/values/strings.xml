@@ -1,4 +1,4 @@
 <resources>
     <string name="app_name">EncryptMorse</string>
-    <string name="screenText" />
+    <string name="screenText">Hello</string>
 </resources>
