@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
     private Array inOrder;
     private Array postOrder;
     private GestureDetectorCompat mDetector;
-    private TextView text;
+//    private TextView text;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,8 +57,10 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
                 return false;
             }
         });
-
-        text = (TextView) findViewById(R.id.textView);
+        TextView text = findViewById(R.id.textView);
+        if(text != null){
+            text.setText("Hello");
+        }
     }
 
     @Override
@@ -73,7 +75,7 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
         switch(action) {
             case (MotionEvent.ACTION_DOWN) :
                 Log.d("DEBUG_TAG","Action was DOWN");
-                text.setText(R.string.screenText);
+//                text.setText(R.string.screenText);
                 return true;
             case (MotionEvent.ACTION_MOVE) :
                 Log.d("DEBUG_TAG","Action was MOVE");
@@ -109,7 +111,7 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
     @Override
     public void onLongPress(MotionEvent event) {
         Log.d("DEBUG_TAG", "onLongPress: " + event.toString());
-        text.setText("Long Press");
+//        text.setText("Long Press");
     }
 
     @Override
