@@ -10,6 +10,8 @@ import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
@@ -19,6 +21,7 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
     private Array inOrder;
     private Array postOrder;
     private GestureDetectorCompat mDetector;
+    private TextView text;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,9 +58,7 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
             }
         });
 
-//        TextView text = findViewById(R.id.text);
-//        text.set("Hello");
-
+        text = (TextView) findViewById(R.id.textView);
     }
 
     @Override
@@ -72,6 +73,7 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
         switch(action) {
             case (MotionEvent.ACTION_DOWN) :
                 Log.d("DEBUG_TAG","Action was DOWN");
+                text.setText(R.string.screenText);
                 return true;
             case (MotionEvent.ACTION_MOVE) :
                 Log.d("DEBUG_TAG","Action was MOVE");
@@ -107,6 +109,7 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
     @Override
     public void onLongPress(MotionEvent event) {
         Log.d("DEBUG_TAG", "onLongPress: " + event.toString());
+        text.setText("Long Press");
     }
 
     @Override
