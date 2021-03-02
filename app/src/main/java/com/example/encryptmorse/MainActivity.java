@@ -49,6 +49,7 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
 
             @Override
             public boolean onDoubleTap(MotionEvent motionEvent) {
+                Log.d("DEBUG_TAG","Action was onDoubleTap");
                 return false;
             }
 
@@ -71,7 +72,6 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
     public boolean onTouchEvent(MotionEvent event){
 
         int action = MotionEventCompat.getActionMasked(event);
-
         switch(action) {
             case (MotionEvent.ACTION_DOWN) :
                 Log.d("DEBUG_TAG","Action was DOWN");
