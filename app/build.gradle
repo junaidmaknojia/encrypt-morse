@@ -5,7 +5,7 @@ android {
     buildToolsVersion "30.0.0"
 
     defaultConfig {
-        applicationId "com.example.encryptmorse"
+        applicationId "com.example.morseapp"
         minSdkVersion 14
         targetSdkVersion 30
         versionCode 1

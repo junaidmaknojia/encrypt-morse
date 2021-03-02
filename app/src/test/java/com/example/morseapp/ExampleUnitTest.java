@@ -1,4 +1,4 @@
-package com.example.encryptmorse;
+package com.example.morseapp;
 
 import org.junit.Test;
 
