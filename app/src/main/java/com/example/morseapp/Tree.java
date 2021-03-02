@@ -14,3 +14,15 @@ public class Tree {
         }
     }
 }
+
+class TreeNode {
+    private final String val;
+    private final String left;
+    private final String right;
+
+    private TreeNode(String val) {
+        this.val = val;
+        this.left = null;
+        this.right = null;
+    }
+}
