@@ -81,12 +81,16 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
     @Override
     public boolean onSingleTapConfirmed(MotionEvent event) {
         Log.d(DEBUG_TAG, "onSingleTapConfirmed: " + event.toString());
+        TextView text = findViewById(R.id.textView);
+        text.setText("Dot");
         return true;
     }
 
     @Override
     public boolean onDoubleTap(MotionEvent event) {
         Log.d(DEBUG_TAG, "onDoubleTap: " + event.toString());
+        TextView text = findViewById(R.id.textView);
+        text.setText("Double Tap");
         return true;
     }
 
@@ -123,12 +127,16 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
     @Override
     public void onLongPress(MotionEvent event) {
         Log.d(DEBUG_TAG, "onLongPress: " + event.toString());
+        TextView text = findViewById(R.id.textView);
+        text.setText("Dash");
     }
 
     @Override
     public boolean onFling(MotionEvent event1, MotionEvent event2,
                            float velocityX, float velocityY) {
         Log.d(DEBUG_TAG, "onFling: " + event1.toString() + event2.toString());
+        TextView text = findViewById(R.id.textView);
+        text.setText("Send sentence / Fling");
         return true;
     }
 }
