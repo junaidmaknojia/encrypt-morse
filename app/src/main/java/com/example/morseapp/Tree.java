@@ -12,27 +12,19 @@ public class Tree {
         }else if(direction == "right"){
             // return val.right;
         }
-//        searchRecur(val, currRoot = this.root){
-//            if (!this.root) return false;
+//        function buildTree(preorder, inorder) {
+//            if (!preorder.length && !inorder.length) return null;
 //
-//            if (val === currRoot.val) {
-//                return true;
-//            } else if (val > currRoot.val) {
-//                if (currRoot.right) {
-//                    currRoot = currRoot.right;
-//                    return this.searchRecur(val, currRoot)
-//                }
+//            let splitpoint = inorder.indexOf(preorder[0]);
+//            let leftInorder = inorder.slice(0, splitpoint);
+//            let rightInorder = inorder.slice(splitpoint + 1);
+//            preorder.shift();
+//            let leftPreorder = preorder.slice(0, leftInorder.length);
+//            let rightPreorder = preorder.slice(leftInorder.length);
 //
-//                return false
-//            } else if (val < currRoot.val){
-//                if (currRoot.left) {
-//                    currRoot = currRoot.left;
-//                    return this.searchRecur(val, currRoot)
-//                }
-//
-//                return false;
-//            }
+//            return { "val": inorder[splitpoint], "left": buildTree(leftPreorder, leftInorder), "right": buildTree(rightPreorder, rightInorder) }
 //        }
+//
     }
 }
 
