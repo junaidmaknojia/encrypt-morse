@@ -1,9 +1,12 @@
 package com.example.morseapp;
 
+import java.lang.reflect.Array;
+
 public class Tree {
 
     public Tree() {
         Object val;
+
     }
 
     private void searchTree(String direction){
@@ -12,7 +15,9 @@ public class Tree {
         }else if(direction == "right"){
             // return val.right;
         }
-//        function buildTree(preorder, inorder) {
+    }
+
+//    private void createTree(preorder, inorder) {
 //            if (!preorder.length && !inorder.length) return null;
 //
 //            let splitpoint = inorder.indexOf(preorder[0]);
@@ -23,9 +28,7 @@ public class Tree {
 //            let rightPreorder = preorder.slice(leftInorder.length);
 //
 //            return { "val": inorder[splitpoint], "left": buildTree(leftPreorder, leftInorder), "right": buildTree(rightPreorder, rightInorder) }
-//        }
-//
-    }
+//    }
 }
 
 class TreeNode {

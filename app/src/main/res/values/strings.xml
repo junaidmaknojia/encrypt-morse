@@ -1,3 +1,46 @@
 <resources>
     <string name="app_name">MorseApp</string>
+
+    <string-array name="preOrder">
+        <item>start</item>
+        <item>T</item>
+        <item>M</item>
+        <item>O</item>
+        <item>-</item>
+        <item>0</item>
+        <item>9</item>
+        <item>*</item>
+        <item>8</item>
+        <item>G</item>
+        <item>Q</item>
+        <item>Z</item>
+        <item>7</item>
+        <item>N</item>
+        <item>K</item>
+        <item>Y</item>
+        <item>C</item>
+        <item>D</item>
+        <item>X</item>
+        <item>B</item>
+        <item>6</item>
+        <item>E</item>
+        <item>A</item>
+        <item>W</item>
+        <item>J</item>
+        <item>1</item>
+        <item>P</item>
+        <item>R</item>
+        <item>L</item>
+        <item>I</item>
+        <item>U</item>
+        <item>-</item>
+        <item>2</item>
+        <item>F</item>
+        <item>S</item>
+        <item>V</item>
+        <item>3</item>
+        <item>H</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
 </resources>

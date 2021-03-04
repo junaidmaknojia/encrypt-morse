@@ -20,17 +20,16 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        /**
-             preOrder = ["start", "T", "M", "O", "-", "0", "9", "*", "8", "G", "Q", "Z", "7", "N", "K",
-             "Y", "C", "D", "X", "B", "6", "E", "A", "W", "J", "1", "P", "R", "L", "I",
-             "U", "-", "2", "F", "S", "V", "3", "H", "4", "5"];
-             inOrder = ["0", "-", "9", "O", "*", "8", "M", "Q", "G", "Z", "7", "T", "Y", "K", "C", "N",
-             "X", "D", "B", "6", "start", "1", "J", "W", "P", "A", "R", "L", "E", "2", "-",
-             "U", "F", "I", "3", "V", "S", "4", "H", "5"];
-             postOrder = ["0", "9", "-", "8", "*", "O", "Q", "7", "Z", "G", "M", "Y", "C", "K", "X", "6",
-             "B", "D", "N", "T", "1", "J", "P", "W", "L", "R", "A", "2", "-", "F", "U", "3",
-             "V", "4", "5", "H", "S", "I", "E", "start"];
-         */
+//         preOrder = ["start", "T", "M", "O", "-", "0", "9", "*", "8", "G", "Q", "Z", "7", "N", "K", "Y", "C", "D", "X", "B", "6", "E", "A", "W", "J", "1", "P", "R", "L", "I", "U", "-", "2", "F", "S", "V", "3", "H", "4", "5"];
+//         inOrder = ["0", "-", "9", "O", "*", "8", "M", "Q", "G", "Z", "7", "T", "Y", "K", "C", "N",
+//         "X", "D", "B", "6", "start", "1", "J", "W", "P", "A", "R", "L", "E", "2", "-",
+//         "U", "F", "I", "3", "V", "S", "4", "H", "5"];
+//         postOrder = ["0", "9", "-", "8", "*", "O", "Q", "7", "Z", "G", "M", "Y", "C", "K", "X", "6",
+//         "B", "D", "N", "T", "1", "J", "P", "W", "L", "R", "A", "2", "-", "F", "U", "3",
+//         "V", "4", "5", "H", "S", "I", "E", "start"];
+        Tree tree = new Tree();
+//        tree.createTree(preOrder, inOrder);
+        // need to add arrays above into strings.xml file
         mDetector = new GestureDetectorCompat(this, this);
         mDetector.setOnDoubleTapListener(this);
     }
