@@ -17,18 +17,20 @@ public class Tree {
         }
     }
 
-//    private void createTree(preorder, inorder) {
-//            if (!preorder.length && !inorder.length) return null;
-//
-//            let splitpoint = inorder.indexOf(preorder[0]);
-//            let leftInorder = inorder.slice(0, splitpoint);
-//            let rightInorder = inorder.slice(splitpoint + 1);
-//            preorder.shift();
-//            let leftPreorder = preorder.slice(0, leftInorder.length);
-//            let rightPreorder = preorder.slice(leftInorder.length);
-//
-//            return { "val": inorder[splitpoint], "left": buildTree(leftPreorder, leftInorder), "right": buildTree(rightPreorder, rightInorder) }
-//    }
+    private String[] createTree(String []preorder, String[]inorder) {
+        if (!preorder.length && !inorder.length){
+//                return null;
+        }
+
+        Integer splitpoint = inorder.indexOf(preorder[0]);
+        String[] leftInorder = inorder.slice(0, splitpoint);
+        String[] rightInorder = inorder.slice(splitpoint + 1);
+        preorder.shift();
+        String[] leftPreorder = preorder.slice(0, leftInorder.length);
+        String[] rightPreorder = preorder.slice(leftInorder.length);
+
+        return { "val": inorder[splitpoint], "left": createTree(leftPreorder, leftInorder), "right": createTree(rightPreorder, rightInorder) }
+    }
 }
 
 class TreeNode {
