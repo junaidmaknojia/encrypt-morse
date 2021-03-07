@@ -27,8 +27,8 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
 //         postOrder = ["0", "9", "-", "8", "*", "O", "Q", "7", "Z", "G", "M", "Y", "C", "K", "X", "6", "B", "D", "N", "T", "1", "J", "P", "W", "L", "R", "A", "2", "-", "F", "U", "3", "V", "4", "5", "H", "S", "I", "E", "start"];
         String[] preOrder = getResources().getStringArray(R.array.preOrder);
         String[] inOrder = getResources().getStringArray(R.array.inOrder);
-        Tree tree = new Tree();
-        tree.createTree(preOrder, inOrder);
+        BinaryTree tree = new BinaryTree();
+        Node root = tree.createTree(preOrder, inOrder);
         mDetector = new GestureDetectorCompat(this, this);
         mDetector.setOnDoubleTapListener(this);
     }

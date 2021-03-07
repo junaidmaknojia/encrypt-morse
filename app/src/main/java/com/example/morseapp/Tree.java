@@ -1,12 +1,12 @@
 package com.example.morseapp;
 
 import java.lang.reflect.Array;
+import java.util.Arrays;
 
-public class Tree {
+public class BinaryTree {
 
-    public Tree() {
-        Object val;
-
+    public BinaryTree() {
+//        Object val;
     }
 
     private void searchTree(String direction){
@@ -17,30 +17,48 @@ public class Tree {
         }
     }
 
-    private String[] createTree(String []preorder, String[]inorder) {
-        if (!preorder.length && !inorder.length){
-//                return null;
+    private String[] slice(String[] array, int start, int end){
+        String[] hermes = new String[end - start];
+        for (int i = 0; i < hermes.length; i++) {
+            hermes[i] = array[start + i];
         }
+        return hermes;
+    }
 
-        Integer splitpoint = inorder.indexOf(preorder[0]);
-        String[] leftInorder = inorder.slice(0, splitpoint);
-        String[] rightInorder = inorder.slice(splitpoint + 1);
-        preorder.shift();
-        String[] leftPreorder = preorder.slice(0, leftInorder.length);
-        String[] rightPreorder = preorder.slice(leftInorder.length);
+    private String[] shift(String[] array){
+        for(int i=0; i<array.length-1; i++){
+            array[i] = array[i+1];
+        }
+        return array;
+    }
 
-        return { "val": inorder[splitpoint], "left": createTree(leftPreorder, leftInorder), "right": createTree(rightPreorder, rightInorder) }
+    public Node createTree(String []preorder, String[]inorder) {
+        if (preorder.length==0 && inorder.length==0){
+           return null;
+        }
+        Integer splitpoint = Arrays.binarySearch(inorder, preorder[0]);
+        String[] leftInorder = slice(inorder,0, splitpoint);
+        String[] rightInorder = slice(inorder,splitpoint + 1, inorder.length);
+        preorder = shift(preorder);
+        String[] leftPreorder = slice(preorder, 0, leftInorder.length);
+        String[] rightPreorder = slice(preorder, leftInorder.length, preorder.length);
+
+        Node node = new Node(inorder[splitpoint]);
+        node.left = createTree(leftPreorder, leftInorder);
+        node.right = createTree(rightPreorder, rightInorder);
+
+        return node;
     }
 }
 
-class TreeNode {
-    private final String val;
-    private final String left;
-    private final String right;
+class Node {
+    String value;
+    Node left;
+    Node right;
 
-    private TreeNode(String val) {
-        this.val = val;
-        this.left = null;
-        this.right = null;
+    Node(String value) {
+        this.value = value;
+        right = null;
+        left = null;
     }
 }
