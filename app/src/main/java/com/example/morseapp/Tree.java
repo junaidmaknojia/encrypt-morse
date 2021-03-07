@@ -3,7 +3,7 @@ package com.example.morseapp;
 import java.lang.reflect.Array;
 import java.util.Arrays;
 
-public class BinaryTree {
+class BinaryTree {
 
     public BinaryTree() {
 //        Object val;
@@ -18,7 +18,7 @@ public class BinaryTree {
     }
 
     private String[] slice(String[] array, int start, int end){
-        String[] hermes = new String[end - start];
+        String[] hermes = new String[start-end];
         for (int i = 0; i < hermes.length; i++) {
             hermes[i] = array[start + i];
         }
@@ -32,7 +32,7 @@ public class BinaryTree {
         return array;
     }
 
-    public Node createTree(String []preorder, String[]inorder) {
+    public Node createTree(String[] preorder, String[] inorder) {
         if (preorder.length==0 && inorder.length==0){
            return null;
         }
