@@ -18,7 +18,7 @@ class BinaryTree {
     }
 
     private String[] slice(String[] array, int start, int end){
-        String[] hermes = new String[start-end];
+        String[] hermes = new String[end-start];
         for (int i = 0; i < hermes.length; i++) {
             hermes[i] = array[start + i];
         }
