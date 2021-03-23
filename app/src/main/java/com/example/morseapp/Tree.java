@@ -22,7 +22,10 @@ class BinaryTree {
     }
 
     private String[] slice(String[] array, int start, int end){
+        Log.d(DEBUG_TAG, "The end: " + end);
+        Log.d(DEBUG_TAG, "The start: " + start);
         int length = end-start;
+        Log.d(DEBUG_TAG, "Here's the length: " + length);
         String[] hermes = new String[length];
         for (int i = 0; i < hermes.length; i++) {
             hermes[i] = array[start + i];
@@ -41,8 +44,9 @@ class BinaryTree {
         if (preorder.length==0 && inorder.length==0){
            return null;
         }
+        Log.d(DEBUG_TAG, "preorder[0]: " + preorder[0]);
         int splitpoint = Arrays.binarySearch(inorder, preorder[0]);
-//        Log.d(DEBUG_TAG, splitpoint.toString());
+        Log.d(DEBUG_TAG, "Splitpoint: " + splitpoint);
         String[] leftInorder = this.slice(inorder,0, splitpoint);
         String[] rightInorder = this.slice(inorder,splitpoint + 1, inorder.length);
         preorder = this.shift(preorder);
