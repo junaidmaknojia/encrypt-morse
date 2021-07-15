@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
     private static final String DEBUG_TAG = "Gestures";
     private GestureDetectorCompat mDetector;
     private Node root;
+    private Node originalRoot;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,8 +31,10 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
 //        String[] inOrder = getResources().getStringArray(R.array.inOrder);
 //        Log.d(DEBUG_TAG, preOrder.toString());
 //        System.out.println(preOrder.toString());
-        BinaryTree tree = new BinaryTree();
 //        root = tree.createTree(preOrder, inOrder);
+        BinaryTree tree = new BinaryTree();
+        root = tree.createTree();
+        originalRoot = root;
 
         mDetector = new GestureDetectorCompat(this, this);
         mDetector.setOnDoubleTapListener(this);
@@ -46,10 +49,10 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
 
     @Override
     public boolean onSingleTapConfirmed(MotionEvent event) {
-        Node spot = root.right;
+        root = root.right;
         Log.d(DEBUG_TAG, "onSingleTapConfirmed: " + event.toString());
         TextView text = findViewById(R.id.textView);
-        text.setText(spot.value);
+        text.setText(root.value);
         return true;
     }
 
@@ -95,7 +98,8 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
     public void onLongPress(MotionEvent event) {
         Log.d(DEBUG_TAG, "onLongPress: " + event.toString());
         TextView text = findViewById(R.id.textView);
-        text.setText("Dash");
+        root = root.left;
+        text.setText(root.value);
     }
 
     @Override
@@ -104,6 +108,7 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
         Log.d(DEBUG_TAG, "onFling: " + event1.toString() + event2.toString());
         TextView text = findViewById(R.id.textView);
         text.setText("Send sentence / Fling");
+        root = originalRoot;
         return true;
     }
 }
