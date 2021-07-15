@@ -40,10 +40,10 @@ class BinaryTree {
 //        return array;
 //    }
 
-    public Node createTree(String[] preorder, String[] inorder) {
-        if (preorder.length==0 && inorder.length==0){
-           return null;
-        }
+    public Node createTree() {
+//        if (preorder.length==0 && inorder.length==0){
+//           return null;
+//        }
 //        Log.d(DEBUG_TAG, "preorder[0]: " + preorder[0]);
 //        int splitpoint = Arrays.binarySearch(inorder, preorder[0]);
 //        Log.d(DEBUG_TAG, "Splitpoint: " + splitpoint);
@@ -59,7 +59,25 @@ class BinaryTree {
 
         Node root = new Node("START");
         root.left = new Node("T");
-
+        root.left.left = new Node("M");
+        root.left.left.left = new Node("O");
+        root.left.left.left.left = new Node("-");
+        root.left.left.left.left.left = new Node("0");
+        root.left.left.left.left.right = new Node("9");
+        root.left.left.left.right = new Node(".");
+        root.left.left.left.right.right = new Node("8");
+        root.left.left.right = new Node("G");
+        root.left.left.right.left = new Node("Q");
+        root.left.left.right.right = new Node("Z");
+        root.left.left.right.right.right = new Node("7");
+        root.left.right = new Node("N");
+        root.left.right.right = new Node("D");
+        root.left.right.right.right = new Node("B");
+        root.left.right.right.right.right = new Node("6");
+        root.left.right.right.left = new Node("X");
+        root.left.right.left = new Node("K");
+        root.left.right.left.left = new Node("Y");
+        root.left.right.left.right = new Node("C");
 
         return root;
     }
