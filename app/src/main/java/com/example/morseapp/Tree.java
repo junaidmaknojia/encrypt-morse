@@ -87,8 +87,8 @@ class BinaryTree {
         root.right.left.left = new Node("W");
         root.right.left.right = new Node("R");
         root.right.left.right.right = new Node("L");
-        root.right.left.left.left.left = new Node("1");
         root.right.left.left.left = new Node("J");
+        root.right.left.left.left.left = new Node("1");
         root.right.left.left.right = new Node("P");
         root.right.right = new Node("I");
         root.right.right.right = new Node("S");
