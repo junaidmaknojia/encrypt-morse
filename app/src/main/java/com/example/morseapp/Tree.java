@@ -58,6 +58,8 @@ class BinaryTree {
 //        node.right = this.createTree(rightPreorder, rightInorder);
 
         Node root = new Node("START");
+
+        // LEFT TREE
         root.left = new Node("T");
         root.left.left = new Node("M");
         root.left.left.left = new Node("O");
@@ -79,6 +81,26 @@ class BinaryTree {
         root.left.right.left.left = new Node("Y");
         root.left.right.left.right = new Node("C");
 
+        // RIGHT TREE
+        root.right = new Node("E");
+        root.right.left = new Node("A");
+        root.right.left.left = new Node("W");
+        root.right.left.right = new Node("R");
+        root.right.left.right.right = new Node("L");
+        root.right.left.left.left.left = new Node("1");
+        root.right.left.left.left = new Node("J");
+        root.right.left.left.right = new Node("P");
+        root.right.right = new Node("I");
+        root.right.right.right = new Node("S");
+        root.right.right.right.right = new Node("H");
+        root.right.right.right.right.right = new Node("5");
+        root.right.right.left = new Node("U");
+        root.right.right.left.right = new Node("F");
+        root.right.right.left.left = new Node("-");
+        root.right.right.left.left.left = new Node("2");
+        root.right.right.right.left = new Node("V");
+        root.right.right.right.left.left = new Node("3");
+        root.right.right.right.right.left = new Node("4");
         return root;
     }
 }
