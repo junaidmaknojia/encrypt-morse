@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
     private GestureDetectorCompat mDetector;
     private Node root;
     private Node originalRoot;
+    private String message;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,10 +50,13 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
 
     @Override
     public boolean onSingleTapConfirmed(MotionEvent event) {
-        root = root.right;
         Log.d(DEBUG_TAG, "onSingleTapConfirmed: " + event.toString());
         TextView text = findViewById(R.id.textView);
-        text.setText(root.value);
+        root = root.right;
+        if (root != null){
+            text.setText(root.value);
+            message = message + root.value;
+        }
         return true;
     }
 
@@ -99,7 +103,10 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
         Log.d(DEBUG_TAG, "onLongPress: " + event.toString());
         TextView text = findViewById(R.id.textView);
         root = root.left;
-        text.setText(root.value);
+        if (root != null){
+            text.setText(root.value);
+            message = message + root.value;
+        }
     }
 
     @Override
@@ -108,6 +115,7 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
         Log.d(DEBUG_TAG, "onFling: " + event1.toString() + event2.toString());
         TextView text = findViewById(R.id.textView);
         text.setText("Send sentence / Fling");
+        message = "";
         root = originalRoot;
         return true;
     }
