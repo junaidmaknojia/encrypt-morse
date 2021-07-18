@@ -20,18 +20,21 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
     private Node root;
     private Node originalRoot;
     private String message;
+    private String finalMessage;
+    private TextView text;
+    private TextView messageDisplay;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        text = findViewById(R.id.textView);
+        messageDisplay = findViewById(R.id.textView2);
 //         String[] preOrder = {"start", "T", "M", "O", "-", "0", "9", "*", "8", "G", "Q", "Z", "7", "N", "K", "Y", "C", "D", "X", "B", "6", "E", "A", "W", "J", "1", "P", "R", "L", "I", "U", "-", "2", "F", "S", "V", "3", "H", "4", "5"};
 //         String [] inOrder = {"0", "-", "9", "O", "*", "8", "M", "Q", "G", "Z", "7", "T", "Y", "K", "C", "N", "X", "D", "B", "6", "start", "1", "J", "W", "P", "A", "R", "L", "E", "2", "-", "U", "F", "I", "3", "V", "S", "4", "H", "5"};
 //         postOrder = ["0", "9", "-", "8", "*", "O", "Q", "7", "Z", "G", "M", "Y", "C", "K", "X", "6", "B", "D", "N", "T", "1", "J", "P", "W", "L", "R", "A", "2", "-", "F", "U", "3", "V", "4", "5", "H", "S", "I", "E", "start"];
 //        String[] preOrder = getResources().getStringArray(R.array.preOrder);
 //        String[] inOrder = getResources().getStringArray(R.array.inOrder);
-//        Log.d(DEBUG_TAG, preOrder.toString());
-//        System.out.println(preOrder.toString());
 //        root = tree.createTree(preOrder, inOrder);
         BinaryTree tree = new BinaryTree();
         root = tree.createTree();
@@ -50,8 +53,7 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
 
     @Override
     public boolean onSingleTapConfirmed(MotionEvent event) {
-        Log.d(DEBUG_TAG, "onSingleTapConfirmed: " + event.toString());
-        TextView text = findViewById(R.id.textView);
+//        Log.d(DEBUG_TAG, "onSingleTapConfirmed: " + event.toString());
         root = root.right;
         if (root != null){
             text.setText(root.value);
@@ -63,7 +65,6 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
     @Override
     public boolean onDoubleTap(MotionEvent event) {
         Log.d(DEBUG_TAG, "onDoubleTap: " + event.toString());
-        TextView text = findViewById(R.id.textView);
         text.setText("Double Tap");
         return true;
     }
@@ -71,6 +72,7 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
     @Override
     public boolean onDoubleTapEvent(MotionEvent event) {
         Log.d(DEBUG_TAG, "onDoubleTapEvent: " + event.toString());
+
         return true;
     }
 
