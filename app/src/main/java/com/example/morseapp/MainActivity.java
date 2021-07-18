@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
     private Node root;
     private Node originalRoot;
     private String message;
-    private String finalMessage;
+    private String finalMessage = "";
     private TextView text;
     private TextView messageDisplay;
 
@@ -65,14 +65,15 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
     @Override
     public boolean onDoubleTap(MotionEvent event) {
         Log.d(DEBUG_TAG, "onDoubleTap: " + event.toString());
-        text.setText("Double Tap");
+        text.setText("Double Tap, and reset");
+        message = "";
+        root = originalRoot;
         return true;
     }
 
     @Override
     public boolean onDoubleTapEvent(MotionEvent event) {
-        Log.d(DEBUG_TAG, "onDoubleTapEvent: " + event.toString());
-
+//        Log.d(DEBUG_TAG, "onDoubleTapEvent: " + event.toString());
         return true;
     }
 
@@ -103,7 +104,7 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
     @Override
     public void onLongPress(MotionEvent event) {
         Log.d(DEBUG_TAG, "onLongPress: " + event.toString());
-        TextView text = findViewById(R.id.textView);
+        text = findViewById(R.id.textView);
         root = root.left;
         if (root != null){
             text.setText(root.value);
@@ -114,9 +115,10 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
     @Override
     public boolean onFling(MotionEvent event1, MotionEvent event2,
                            float velocityX, float velocityY) {
-        Log.d(DEBUG_TAG, "onFling: " + event1.toString() + event2.toString());
-        TextView text = findViewById(R.id.textView);
+//        Log.d(DEBUG_TAG, "onFling: " + event1.toString() + event2.toString());
         text.setText("Send sentence / Fling");
+        finalMessage = finalMessage + " " + message;
+        messageDisplay.setText(finalMessage);
         message = "";
         root = originalRoot;
         return true;
