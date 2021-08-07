@@ -98,6 +98,8 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
     public boolean onScroll(MotionEvent event1, MotionEvent event2, float distanceX,
                             float distanceY) {
         Log.d(DEBUG_TAG, "onScroll: " + event1.toString() + event2.toString());
+        finalMessage = "";
+        messageDisplay.setText(finalMessage);
         return true;
     }
 
