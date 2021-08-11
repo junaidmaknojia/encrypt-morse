@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
     private GestureDetectorCompat mDetector;
     private Node root;
     private Node originalRoot;
-    private String message;
+    private String message = "";
     private String finalMessage = "";
     private TextView text;
     private TextView messageDisplay;
