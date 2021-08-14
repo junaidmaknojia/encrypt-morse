@@ -28,8 +28,8 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        text = findViewById(R.id.textView);
-        messageDisplay = findViewById(R.id.textView2);
+        text = findViewById(R.id.textView); // sentence
+        messageDisplay = findViewById(R.id.textView2); // word
 //         String[] preOrder = {"start", "T", "M", "O", "-", "0", "9", "*", "8", "G", "Q", "Z", "7", "N", "K", "Y", "C", "D", "X", "B", "6", "E", "A", "W", "J", "1", "P", "R", "L", "I", "U", "-", "2", "F", "S", "V", "3", "H", "4", "5"};
 //         String [] inOrder = {"0", "-", "9", "O", "*", "8", "M", "Q", "G", "Z", "7", "T", "Y", "K", "C", "N", "X", "D", "B", "6", "start", "1", "J", "W", "P", "A", "R", "L", "E", "2", "-", "U", "F", "I", "3", "V", "S", "4", "H", "5"};
 //         postOrder = ["0", "9", "-", "8", "*", "O", "Q", "7", "Z", "G", "M", "Y", "C", "K", "X", "6", "B", "D", "N", "T", "1", "J", "P", "W", "L", "R", "A", "2", "-", "F", "U", "3", "V", "4", "5", "H", "S", "I", "E", "start"];
@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
         root = root.right;
         if (root != null){
             text.setText(root.value);
-            message = message + root.value;
+//            message = message + root.value;
         }
         return true;
     }
@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
 
     @Override
     public boolean onDoubleTapEvent(MotionEvent event) {
-//        Log.d(DEBUG_TAG, "onDoubleTapEvent: " + event.toString());
+        Log.d(DEBUG_TAG, "onDoubleTapEvent: " + event.toString());
         return true;
     }
 
@@ -98,19 +98,19 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
     public boolean onScroll(MotionEvent event1, MotionEvent event2, float distanceX,
                             float distanceY) {
         Log.d(DEBUG_TAG, "onScroll: " + event1.toString() + event2.toString());
-        finalMessage = "";
-        messageDisplay.setText(finalMessage);
+        message = message + root.value;
+        text.setText("");
+//        messageDisplay.setText(message);
         return true;
     }
 
     @Override
     public void onLongPress(MotionEvent event) {
         Log.d(DEBUG_TAG, "onLongPress: " + event.toString());
-        text = findViewById(R.id.textView);
         root = root.left;
         if (root != null){
             text.setText(root.value);
-            message = message + root.value;
+//            message = message + root.value;
         }
     }
 
