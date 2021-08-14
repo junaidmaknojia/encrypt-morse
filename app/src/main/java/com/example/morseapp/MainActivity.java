@@ -19,17 +19,16 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
     private GestureDetectorCompat mDetector;
     private Node root;
     private Node originalRoot;
-    private String message = "";
     private String finalMessage = "";
     private TextView text;
-    private TextView messageDisplay;
+    private TextView letter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         text = findViewById(R.id.textView); // sentence
-        messageDisplay = findViewById(R.id.textView2); // word
+        letter = findViewById(R.id.textView3); // letter
 //         String[] preOrder = {"start", "T", "M", "O", "-", "0", "9", "*", "8", "G", "Q", "Z", "7", "N", "K", "Y", "C", "D", "X", "B", "6", "E", "A", "W", "J", "1", "P", "R", "L", "I", "U", "-", "2", "F", "S", "V", "3", "H", "4", "5"};
 //         String [] inOrder = {"0", "-", "9", "O", "*", "8", "M", "Q", "G", "Z", "7", "T", "Y", "K", "C", "N", "X", "D", "B", "6", "start", "1", "J", "W", "P", "A", "R", "L", "E", "2", "-", "U", "F", "I", "3", "V", "S", "4", "H", "5"};
 //         postOrder = ["0", "9", "-", "8", "*", "O", "Q", "7", "Z", "G", "M", "Y", "C", "K", "X", "6", "B", "D", "N", "T", "1", "J", "P", "W", "L", "R", "A", "2", "-", "F", "U", "3", "V", "4", "5", "H", "S", "I", "E", "start"];
@@ -56,7 +55,7 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
 //        Log.d(DEBUG_TAG, "onSingleTapConfirmed: " + event.toString());
         root = root.right;
         if (root != null){
-            text.setText(root.value);
+            letter.setText(root.value);
 //            message = message + root.value;
         }
         return true;
@@ -65,8 +64,7 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
     @Override
     public boolean onDoubleTap(MotionEvent event) {
         Log.d(DEBUG_TAG, "onDoubleTap: " + event.toString());
-        text.setText("Double Tap, and reset");
-        message = "";
+        letter.setText("Double Tap, and reset root");
         root = originalRoot;
         return true;
     }
@@ -98,9 +96,10 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
     public boolean onScroll(MotionEvent event1, MotionEvent event2, float distanceX,
                             float distanceY) {
         Log.d(DEBUG_TAG, "onScroll: " + event1.toString() + event2.toString());
-        message = message + root.value;
-        text.setText("");
+//        message = message + root.value;
 //        messageDisplay.setText(message);
+//        root = originalRoot;
+//        letter.setText(root.value);
         return true;
     }
 
@@ -109,7 +108,7 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
         Log.d(DEBUG_TAG, "onLongPress: " + event.toString());
         root = root.left;
         if (root != null){
-            text.setText(root.value);
+            letter.setText(root.value);
 //            message = message + root.value;
         }
     }
@@ -118,10 +117,13 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
     public boolean onFling(MotionEvent event1, MotionEvent event2,
                            float velocityX, float velocityY) {
 //        Log.d(DEBUG_TAG, "onFling: " + event1.toString() + event2.toString());
-        text.setText("Send sentence / Fling");
-        finalMessage = finalMessage + " " + message;
-        messageDisplay.setText(finalMessage);
-        message = "";
+        letter.setText("Send sentence / Fling");
+        if(root.value == "START"){
+            finalMessage += "  ";
+        } else {
+            finalMessage = finalMessage + root.value;
+        }
+        text.setText(finalMessage);
         root = originalRoot;
         return true;
     }
